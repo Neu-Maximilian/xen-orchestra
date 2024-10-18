@@ -152,19 +152,20 @@ export { default as Debug } from './debug'
  * Use `getXoaPlan` from `xoa-plans` instead
  */
 export const getXoaPlan = plan => {
-  switch (plan || +process.env.XOA_PLAN) {
-    case 1:
-      return 'Free'
-    case 2:
-      return 'Starter'
-    case 3:
-      return 'Enterprise'
-    case 4:
-      return 'Premium'
-    case 5:
-      return 'Community'
-  }
-  return 'Unknown'
+  // switch (plan || +process.env.XOA_PLAN) {
+  //   case 1:
+  //     return 'Free'
+  //   case 2:
+  //     return 'Starter'
+  //   case 3:
+  //     return 'Enterprise'
+  //   case 4:
+  //     return 'Premium'
+  //   case 5:
+  //     return 'Community'
+  // }
+  // return 'Unknown'
+  return 'Enterprise'
 }
 
 // -------------------------------------------------------------------
@@ -609,7 +610,7 @@ export const downloadLog = ({ log, date, type }) => {
   const isJson = typeof log !== 'string'
 
   const anchor = document.createElement('a')
-  anchor.href = window.URL.createObjectURL(createBlobFromString(isJson ? JSON.stringify(log, null, 2) : log))
+  anchor.href = window.createObjectURL(createBlobFromString(isJson ? JSON.stringify(log, null, 2) : log))
   anchor.download = `${safeDateFormat(date)} - ${type}.${isJson ? 'json' : 'log'}`
   anchor.style.display = 'none'
   document.body.appendChild(anchor)

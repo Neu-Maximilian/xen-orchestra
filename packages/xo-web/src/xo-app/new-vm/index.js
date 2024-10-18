@@ -122,7 +122,6 @@ const Item = ({ label, children, className }) => (
 )
 
 @addSubscriptions({
-  // eslint-disable-next-line standard/no-callback-literal
   ipPoolsConfigured: cb => subscribeIpPools(ipPools => cb(ipPools.length > 0)),
 })
 @injectIntl
@@ -396,6 +395,7 @@ export default class NewVm extends BaseComponent {
         }
         break
       case 'network':
+        // eslint-disable-next-line no-case-declarations
         const matches = /^(http|ftp|nfs)/i.exec(state.installNetwork)
         if (!matches) {
           throw new Error('invalid network URL')
