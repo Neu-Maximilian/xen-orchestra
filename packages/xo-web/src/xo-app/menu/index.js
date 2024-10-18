@@ -8,7 +8,7 @@ import Tooltip from 'tooltip'
 import { injectState } from 'reaclette'
 // import { UpdateTag } from '../xoa/update'
 // import { NotificationTag } from '../xoa/notifications'
-import { addSubscriptions, connectStore, getXoaPlan, noop } from 'utils'
+import { addSubscriptions, connectStore, noop } from 'utils' // getXoaPlan
 import {
   connect,
   signOut,
@@ -575,7 +575,8 @@ export default class Menu extends Component {
                 </span>
               </Link>
             </li>
-          )} */}
+          )}
+          
           {(isAdmin || +process.env.XOA_PLAN === 5) && (
             <li className='nav-item xo-menu-item'>
               <Link className='nav-link' style={{ display: 'flex' }} to='/about'>
@@ -609,7 +610,7 @@ export default class Menu extends Component {
                 )}
               </Link>
             </li>
-          )}
+          )} */}
           <li>&nbsp;</li>
           <li>&nbsp;</li>
           <li className='nav-item xo-menu-item'>
