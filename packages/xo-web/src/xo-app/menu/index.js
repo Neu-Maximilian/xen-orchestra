@@ -6,8 +6,8 @@ import Link from 'link'
 import React from 'react'
 import Tooltip from 'tooltip'
 import { injectState } from 'reaclette'
-import { UpdateTag } from '../xoa/update'
-import { NotificationTag } from '../xoa/notifications'
+// import { UpdateTag } from '../xoa/update'
+// import { NotificationTag } from '../xoa/notifications'
 import { addSubscriptions, connectStore, getXoaPlan, noop } from 'utils'
 import {
   connect,
@@ -36,9 +36,9 @@ import { countBy, every, forEach, identity, isEmpty, isEqual, map, pick, size, s
 
 import styles from './index.css'
 
-const LINK_STYLE = {
-  display: 'flex',
-}
+// const LINK_STYLE = {
+//   display: 'flex',
+// }
 
 const returnTrue = () => true
 
@@ -213,10 +213,10 @@ export default class Menu extends Component {
   }
 
   render() {
-    const { isAdmin, isPoolAdmin, nResolvedTasks, state, status, user, pools, nHosts, srs, xoaState } = this.props
+    const { isAdmin, isPoolAdmin, nResolvedTasks, status, user, pools, nHosts, srs } = this.props // state, xoaState
     const noOperatablePools = this._getNoOperatablePools()
     const noResourceSets = this._getNoResourceSets()
-    const noNotifications = this._getNoNotifications()
+    // const noNotifications = this._getNoNotifications()
     const nProxiesErrors = this._getNProxiesErrors()
 
     const missingPatchesWarning = this._hasMissingPatches() ? (
@@ -338,39 +338,39 @@ export default class Menu extends Component {
           },
         ],
       },
-      {
-        to: isAdmin ? 'xoa/update' : 'xoa/notifications',
-        icon: 'menu-xoa',
-        label: 'xoa',
-        extra: [
-          !isAdmin || xoaState === 'upToDate' ? null : <UpdateTag key='update' />,
-          noNotifications ? null : <NotificationTag key='notification' />,
-        ],
-        // subMenu: [
-        //   isAdmin && {
-        //     to: 'xoa/update',
-        //     icon: 'menu-update',
-        //     label: 'updatePage',
-        //     extra: <UpdateTag />,
-        //   },
-        //   isAdmin && {
-        //     to: 'xoa/licenses',
-        //     icon: 'menu-license',
-        //     label: 'licensesPage',
-        //   },
-        //   {
-        //     to: 'xoa/notifications',
-        //     icon: 'menu-notification',
-        //     label: 'notificationsPage',
-        //     extra: <NotificationTag />,
-        //   },
-        //   isAdmin && {
-        //     to: 'xoa/support',
-        //     icon: 'menu-support',
-        //     label: 'supportPage',
-        // },
-        // ],
-      },
+      // {
+      //   to: isAdmin ? 'xoa/update' : 'xoa/notifications',
+      //   icon: 'menu-xoa',
+      //   label: 'xoa',
+      //   extra: [
+      //     !isAdmin || xoaState === 'upToDate' ? null : <UpdateTag key='update' />,
+      //     noNotifications ? null : <NotificationTag key='notification' />,
+      //   ],
+      //   // subMenu: [
+      //   //   isAdmin && {
+      //   //     to: 'xoa/update',
+      //   //     icon: 'menu-update',
+      //   //     label: 'updatePage',
+      //   //     extra: <UpdateTag />,
+      //   //   },
+      //   //   isAdmin && {
+      //   //     to: 'xoa/licenses',
+      //   //     icon: 'menu-license',
+      //   //     label: 'licensesPage',
+      //   //   },
+      //   //   {
+      //   //     to: 'xoa/notifications',
+      //   //     icon: 'menu-notification',
+      //   //     label: 'notificationsPage',
+      //   //     extra: <NotificationTag />,
+      //   //   },
+      //   //   isAdmin && {
+      //   //     to: 'xoa/support',
+      //   //     icon: 'menu-support',
+      //   //     label: 'supportPage',
+      //   // },
+      //   // ],
+      // },
       isAdmin && {
         to: '/settings/servers',
         icon: 'menu-settings',
@@ -564,7 +564,7 @@ export default class Menu extends Component {
           {map(items, (item, index) => item && <MenuLinkItem key={index} item={item} />)}
           <li>&nbsp;</li>
           <li>&nbsp;</li>
-          {!state.isXoaStatusOk && (
+          {/* {!state.isXoaStatusOk && (
             <li className='nav-item xo-menu-item'>
               <Link className='nav-link' style={LINK_STYLE} to='/xoa/support'>
                 <span className={classNames(styles.hiddenCollapsed, 'text-warning')}>
@@ -575,7 +575,7 @@ export default class Menu extends Component {
                 </span>
               </Link>
             </li>
-          )}
+          )} */}
           {(isAdmin || +process.env.XOA_PLAN === 5) && (
             <li className='nav-item xo-menu-item'>
               <Link className='nav-link' style={{ display: 'flex' }} to='/about'>
