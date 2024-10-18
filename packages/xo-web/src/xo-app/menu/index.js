@@ -135,6 +135,7 @@ export default class Menu extends Component {
   )
 
   get height() {
+    // eslint-disable-next-line react/no-string-refs
     return this.refs.content.offsetHeight
   }
 
@@ -345,30 +346,30 @@ export default class Menu extends Component {
           !isAdmin || xoaState === 'upToDate' ? null : <UpdateTag key='update' />,
           noNotifications ? null : <NotificationTag key='notification' />,
         ],
-        subMenu: [
-          isAdmin && {
-            to: 'xoa/update',
-            icon: 'menu-update',
-            label: 'updatePage',
-            extra: <UpdateTag />,
-          },
-          isAdmin && {
-            to: 'xoa/licenses',
-            icon: 'menu-license',
-            label: 'licensesPage',
-          },
-          {
-            to: 'xoa/notifications',
-            icon: 'menu-notification',
-            label: 'notificationsPage',
-            extra: <NotificationTag />,
-          },
-          isAdmin && {
-            to: 'xoa/support',
-            icon: 'menu-support',
-            label: 'supportPage',
-          },
-        ],
+        // subMenu: [
+        //   isAdmin && {
+        //     to: 'xoa/update',
+        //     icon: 'menu-update',
+        //     label: 'updatePage',
+        //     extra: <UpdateTag />,
+        //   },
+        //   isAdmin && {
+        //     to: 'xoa/licenses',
+        //     icon: 'menu-license',
+        //     label: 'licensesPage',
+        //   },
+        //   {
+        //     to: 'xoa/notifications',
+        //     icon: 'menu-notification',
+        //     label: 'notificationsPage',
+        //     extra: <NotificationTag />,
+        //   },
+        //   isAdmin && {
+        //     to: 'xoa/support',
+        //     icon: 'menu-support',
+        //     label: 'supportPage',
+        // },
+        // ],
       },
       isAdmin && {
         to: '/settings/servers',
@@ -546,7 +547,7 @@ export default class Menu extends Component {
 
     return (
       <div className={classNames('xo-menu', this.state.collapsed && styles.collapsed)}>
-        <ul className='nav nav-sidebar nav-pills nav-stacked' ref='content'>
+        <ul className='nav nav-sidebar nav-pills nav-stacked'>
           <li>
             <span>
               <a className={styles.brand} href='#'>
