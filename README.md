@@ -61,7 +61,7 @@ This repository is a fork of Xen Orchestra for personal use without the communit
 2. Install Node.js (latest LTS) and Yarn.
 3. Clone the Xen Orchestra repository:
    ```sh
-   git clone -b master https://github.com/Neu-Maximilian/xen-orchestra
+   git clone -b master https://github.com/Neu-Maximilian/xen-orchestra-forked
    ```
 4. Install dependencies and build the project:
    ```sh
@@ -83,7 +83,7 @@ This repository is a fork of Xen Orchestra for personal use without the communit
 
 ### Installation using XenOrchestraInstallerUpdater
 
-For an easier installation, follow the steps from the [XenOrchestraInstallerUpdater repository](https://github.com/ronivay/XenOrchestraInstallerUpdater.git). In the `sample.xo-install.cfg` file, change the repository URL to `https://github.com/Neu-Maximilian/xen-orchestra`.
+For an easier installation, follow the steps from the [XenOrchestraInstallerUpdater repository](https://github.com/ronivay/XenOrchestraInstallerUpdater.git). In the `sample.xo-install.cfg` file, change the repository URL to `https://github.com/Neu-Maximilian/xen-orchestra-forked`.
 ## License
 
 AGPL3 © [Vates](https://vates.tech)
