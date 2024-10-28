@@ -1,6 +1,6 @@
 {
-  "name": "Xen Orchestra",
-  "short_name": "XenOrchestra",
+  "name": "Max Orchestra",
+  "short_name": "MaxOrchestra",
   "start_url": "./",
   "display": "standalone",
   "description": "The centralized management, orchestration, backup and cloud-enabler platform for XCP-ng.",
