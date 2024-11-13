@@ -2,7 +2,7 @@
   <div>
     <img alt="" src="../assets/object-not-found.svg" />
     <p class="text">{{ $t('object-not-found', { id }) }}</p>
-    <UiButton size="medium" color="normal" level="primary" @click="router.push({ name: 'home' })">
+    <UiButton size="medium" accent="info" variant="primary" @click="router.push({ name: 'home' })">
       {{ $t('back-pool-dashboard') }}
     </UiButton>
   </div>
@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { usePageTitleStore } from '@/stores/page-title.store'
-import UiButton from '@core/components/button/UiButton.vue'
+import UiButton from '@core/components/ui/button/UiButton.vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -38,7 +38,7 @@ img {
 }
 
 .text {
-  color: var(--color-normal-txt-base);
+  color: var(--color-info-txt-base);
   font-size: 36px;
   font-weight: 400;
   line-height: 150%;

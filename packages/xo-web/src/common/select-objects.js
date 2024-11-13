@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable react/no-string-refs */
 import decorate from 'apply-decorators'
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -331,7 +333,7 @@ const makeSubscriptionSelect = (subscribe, { placeholder, placeholderMulti = pla
       )
 
       componentWillMount() {
-        this.componentWillUnmount = subscribe(::this.setState)
+        this.componentWillUnmount = subscribe(this.setState)
       }
 
       render() {
@@ -515,7 +517,7 @@ export const SelectPif = makeStoreSelect(
 
 // ===================================================================
 
-const GenericSelectTag = makeStoreSelect(
+export const GenericSelectTag = makeStoreSelect(
   (_, props) => ({
     xoObjects: createSelector(
       createGetTags('objects' in props ? (_, props) => props.objects : undefined)

@@ -1,3 +1,6 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable react/jsx-pascal-case */
+/* eslint-disable react/no-string-refs */
 import classNames from 'classnames'
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -228,7 +231,7 @@ export class Text extends Editable {
       throw new Error(error)
     }
 
-    return input.value
+    return input.value.trim()
   }
 
   _onInput = ({ target }) => {

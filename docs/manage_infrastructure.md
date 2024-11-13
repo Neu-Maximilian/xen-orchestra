@@ -529,6 +529,7 @@ XO will restart the hosts one by one and wait for each host to be up and running
 [xapiOptions]
 restartHostTimeout = '40 minutes'
 ```
+
 :::
 
 ![](./assets/rpu1.png)
@@ -587,9 +588,10 @@ As specified in the [documentation](https://xcp-ng.org/docs/requirements.html#po
 :::
 
 :::warning
+
 - Even with matching CPU vendors, in the case of different CPU models, XCP-ng/Citrix Hypervisor will "level" down to use the CPU having the least instructions.
 - All the hosts in a pool must run the same XCP-ng version.
-:::
+  :::
 
 ### Creating a pool
 
@@ -619,9 +621,10 @@ To remove one host from a pool, you can go to the "Advanced" tab of the host pag
 ![](./assets/detach-host.png)
 
 :::warning
+
 - Detaching a host will remove all the VM disks stored on the Local Storage of this host, and reboot the host.
 - The host you want to remove must be a slave, not the master!
-:::
+  :::
 
 ## Storage Management
 
@@ -638,7 +641,6 @@ Maintenance mode will trigger two actions internally:
 ![](./assets/SR-maintenance-mode.png)
 
 This way, you can do whatever is needed on the storage, and when done, re-enable it: all the hosts will be reconnected to it. No manual process to find all VMs related to this SR, shut them down, then disconnect all the PBDs.
-
 
 ### Reclaim free space
 

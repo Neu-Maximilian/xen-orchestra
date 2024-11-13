@@ -58,6 +58,28 @@ class Vdi {
     )
   }
 
+  async destroyCloudInitConfig(vdiRef, { timeLimit = Date.now() + 10 * 60 * 1000 } = {}) {
+    const vbdRef = (await this.getField('VDI', vdiRef, 'VBDs'))[0]
+    const vmRef = await this.getField('VBD', vbdRef, 'VM')
+
+    await this.waitObjectState(vmRef, vm => vm.power_state === 'Running', {
+      timeout: timeLimit - Date.now(),
+    })
+
+    const vm = await this.getRecord('VM', vmRef)
+    await this.waitObjectState(vm.guest_metrics, gm => gm?.PV_drivers_version?.major !== undefined, {
+      timeout: timeLimit - Date.now(),
+    }).catch(error => {
+      warn('failed to wait guest metrics, consider VM as started', {
+        error,
+        vm: { uuid: vm.uuid },
+      })
+    })
+
+    await this.VBD_unplug(vbdRef)
+    await this.VDI_destroy(vdiRef)
+  }
+
   async dataDestroy(vdiRef) {
     await this.callAsync('VDI.data_destroy', vdiRef)
   }
@@ -129,7 +151,7 @@ class Vdi {
    * in the raw vdi has changed
    */
   async listChangedBlock(ref, baseRef) {
-    const encoded = await this.call('VDI.list_changed_blocks', baseRef, ref)
+    const encoded = await this.callAsync('VDI.list_changed_blocks', baseRef, ref)
     return Buffer.from(encoded, 'base64')
   }
 

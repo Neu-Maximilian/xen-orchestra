@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable react/jsx-curly-brace-presence */
 import _ from 'intl'
 import Component from 'base-component'
 import Ellipsis, { EllipsisContainer } from 'ellipsis'
@@ -221,6 +223,13 @@ export default class HostItem extends Component {
                 <li>{_('longerCustomCertficate')}</li>
                 <li>{_('longerDefaultCertificate')}</li>
               </ul>
+              <a
+                href='https://docs.xcp-ng.org/releases/release-8-3/#host-certificate-key-too-small-prevents-upgrade'
+                target='_blank'
+                rel='noreferrer'
+              >
+                <Icon icon='info' /> {_('clickLinkForDetails')}
+              </a>
             </span>
           ),
         })
