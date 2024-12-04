@@ -1,8 +1,78 @@
 # ChangeLog
 
-## **5.100.1** (2024-11-07)
+## **5.101.0** (2024-11-29)
 
 <img id="latest" src="https://badgen.net/badge/channel/latest/yellow" alt="Channel: latest" />
+
+### Highlights
+
+- [Proxies] Display the current proxy version (PR [#8104](https://github.com/vatesfr/xen-orchestra/pull/8104))
+- [VM/Advanced] Add ability to block/unblock migration (PR [#8129](https://github.com/vatesfr/xen-orchestra/pull/8129))
+- [Backup] Long-term retention (GFS) (PRs [#7999](https://github.com/vatesfr/xen-orchestra/pull/7999) [#8141](https://github.com/vatesfr/xen-orchestra/pull/8141))
+- [Host/Advanced] Allow bypassing blocked migration in maintenance mode (PR [#8149](https://github.com/vatesfr/xen-orchestra/pull/8149))
+- [Host/General] Shows if a BIOS update is available for 2CRSi server (PR [#8146](https://github.com/vatesfr/xen-orchestra/pull/8146))
+- [REST/VM] When creating a VM, the template's VIFs are created. It is also possible to create more VIFs or delete/update template's VIFs (PR [#8137](https://github.com/vatesfr/xen-orchestra/pull/8137))
+- [backups] Handle VTPM content on incremental backup/replication/restore, including differential restore (PR [#8139](https://github.com/vatesfr/xen-orchestra/pull/8139))
+
+- **XO 6**:
+  - [VM,Host/Console] Display _Console Clipboard_ and _Console Actions_ (PR [#8125](https://github.com/vatesfr/xen-orchestra/pull/8125))
+  - [i18n] Add Czech translation (contribution made by [@p-bo](https://github.com/p-bo)) (PR [#8099](https://github.com/vatesfr/xen-orchestra/pull/8099))
+  - Add 404 page (PR [#8145](https://github.com/vatesfr/xen-orchestra/pull/8145))
+
+### Enhancements
+
+- **XO 6**:
+  - [Header] Use new `UiAccountMenuButton` component for user menu button (PR [#8143](https://github.com/vatesfr/xen-orchestra/pull/8143))
+
+### Bug fixes
+
+- [Host/Network] When reconfiguring IP address on a PIF, no IPv6 reconfiguration if no IPv6 (PR [#8119](https://github.com/vatesfr/xen-orchestra/pull/8119))
+- [Remotes] Fix NFS port (PR [#8085](https://github.com/vatesfr/xen-orchestra/pull/8085))
+- [Plugins/Perf-alert] Fix unwritable SRs being monitored [Forum#9619](https://xcp-ng.org/forum/topic/9619/performance-alert-plugin-not-handling-removable-srs-correctly) (PR [#8113](https://github.com/vatesfr/xen-orchestra/pull/8113))
+- [ISO SR/IPv6] Fix support of IPv6 ISO SR (PR [#8134](https://github.com/vatesfr/xen-orchestra/pull/8134))
+- [VM/New] Cloudbase-Init is now correctly supported (PR [#8154](https://github.com/vatesfr/xen-orchestra/pull/8154))
+
+### Packages to release
+
+- @xen-orchestra/fs 4.3.0
+- xo-server-perf-alert 0.6.0
+- @vates/fatfs 0.11.0
+- vhd-lib 4.11.2
+- @xen-orchestra/xapi 7.8.0
+- @xen-orchestra/backups 0.55.0
+- @xen-orchestra/backups-cli 1.0.26
+- @xen-orchestra/immutable-backups 1.0.14
+- @xen-orchestra/web-core 0.7.0
+- @xen-orchestra/proxy 0.29.6
+- @xen-orchestra/web 0.5.0
+- xo-server 5.164.0
+- xo-web 5.163.0
+
+## **5.100.2** (2024-11-14)
+
+<img id="stable" src="https://badgen.net/badge/channel/stable/green" alt="Channel: stable" />
+
+### Enhancements
+
+- Ignore leading and trailing spaces when editing VM/Pools/Hosts/SRs names and descriptions (PR [#8115](https://github.com/vatesfr/xen-orchestra/pull/8115))
+- [VM/Advanced] in Nested virtualization section, add warning tooltip and link to documentation (PR [#8107](https://github.com/vatesfr/xen-orchestra/pull/8107))
+
+### Bug fixes
+
+- [Backup/CBT] use asynchronous method to list changed block, reducing the number of fall back to full backup
+- [Backups] handle incremental doing base (full) each time (PR [#8126](https://github.com/vatesfr/xen-orchestra/pull/8126))
+- [Backup/Health Check] Better detection of guest tools even when they do not properly report their version number
+
+### Released packages
+
+- @xen-orchestra/log 0.7.1
+- @xen-orchestra/xapi 7.7.1
+- @xen-orchestra/backups 0.54.3
+- @xen-orchestra/proxy 0.29.4
+- xo-server 5.161.0
+- xo-web 5.161.0
+
+## **5.100.1** (2024-11-07)
 
 ### Enhancements
 
@@ -89,8 +159,6 @@
 - xo-server 5.159.1
 
 ## **5.99.1** (2024-10-04)
-
-<img id="stable" src="https://badgen.net/badge/channel/stable/green" alt="Channel: stable" />
 
 ### Bug fixes
 

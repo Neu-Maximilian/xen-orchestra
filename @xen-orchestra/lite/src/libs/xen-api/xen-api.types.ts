@@ -4,6 +4,7 @@ import type {
   ALLOCATION_ALGORITHM,
   BOND_MODE,
   DOMAIN_TYPE,
+  HOST_OPERATION,
   IP_CONFIGURATION_MODE,
   IPV6_CONFIGURATION_MODE,
   NETWORK_DEFAULT_LOCKING_MODE,
@@ -110,6 +111,8 @@ export interface XenApiHost extends XenApiRecord<'host'> {
   resident_VMs: XenApiVm['$ref'][]
   cpu_info: { cpu_count: string }
   software_version: { product_version: string }
+  control_domain: XenApiVm['$ref']
+  current_operations: Record<string, HOST_OPERATION>
 }
 
 export interface XenApiSr extends XenApiRecord<'sr'> {

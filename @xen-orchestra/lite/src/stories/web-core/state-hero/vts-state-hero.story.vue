@@ -2,9 +2,9 @@
   <ComponentStory
     v-slot="{ properties, settings }"
     :params="[
-      prop('type').required().enum('page', 'card').preset('card').widget(),
+      prop('type').required().enum('page', 'card', 'panel', 'table').preset('card').widget(),
       prop('busy').bool().widget(),
-      prop('image').enum('no-result', 'under-construction').widget(),
+      prop('image').enum('no-result', 'under-construction', 'no-selection', 'error', 'no-data').widget(),
       slot(),
       setting('defaultSlot').preset('Some text').widget(),
     ]"
